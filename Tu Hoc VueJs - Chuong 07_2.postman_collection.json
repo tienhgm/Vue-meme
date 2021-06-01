@@ -1,0 +1,785 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Tu Hoc VueJs - Chuong 07",
+		"_postman_id": "661a7c1f-0bd8-3a48-e8a8-6124bdcedb39",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"url": "{{base_url}}/member/login.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"123456\"\n\t\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"url": "{{base_url}}/member/register.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test02@gmail.com\",\n\t\"fullname\": \"Test 02\",\n\t\"password\": \"123456\",\n\t\"repassword\": \"123456\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER BY ID",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/member/member.php?userid=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"member",
+								"member.php"
+							],
+							"query": [
+								{
+									"key": "userid",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password User",
+					"request": {
+						"url": "{{base_url}}/member/password.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"oldPassword\": \"123456\",\n\t\"newPassword\": \"123123\",\n\t\"reNewPassword\": \"123123\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Infor User",
+					"request": {
+						"url": "{{base_url}}/member/update.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"value": "",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "fullname",
+									"value": "Trần Công Lực",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Đây là mô tả ngắn của Trần Công Lực",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "nam",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get List Member has Paging",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/member/getListPaging.php?pagesize=4&currPage=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"member",
+								"getListPaging.php"
+							],
+							"query": [
+								{
+									"key": "pagesize",
+									"value": "4",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "currPage",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Active / Deactive Member",
+					"request": {
+						"url": "{{base_url}}/post/activeDeactive.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"postid\": 28\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"description": "",
+			"item": [
+				{
+					"name": "Create New Post (Update Image)",
+					"request": {
+						"url": "{{base_url}}/post/addNew.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "obj_image",
+									"value": "",
+									"description": "Optional ",
+									"type": "file"
+								},
+								{
+									"key": "url_image",
+									"value": "https://i-xem.mkocdn.com/i.xem.sb/data/photo/2018/12/06/023/khong-chiu-khong-chiu-dau-1544054823-650.jpg",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "post_content",
+									"value": "Không chịu, không chịu đâu",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "7,8",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Post (Update Image)",
+					"request": {
+						"url": "{{base_url}}/post/edit.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "obj_image",
+									"value": "",
+									"description": "Optional ",
+									"type": "file"
+								},
+								{
+									"key": "url_image",
+									"value": "https://i-xem.mkocdn.com/i.xem.sb/data/photo/2018/12/06/023/khong-chiu-khong-chiu-dau-1544054823-650.jpg",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "post_content",
+									"value": "Không chịu, không chịu đâu",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "7,8",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post List By UserID",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/post/getListPostUserID.php?userid=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"post",
+								"getListPostUserID.php"
+							],
+							"query": [
+								{
+									"key": "userid",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "obj_image",
+									"value": "",
+									"description": "Optional ",
+									"type": "file"
+								},
+								{
+									"key": "url_image",
+									"value": "https://i-xem.mkocdn.com/i.xem.sb/data/photo/2018/12/06/023/khong-chiu-khong-chiu-dau-1544054823-650.jpg",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "post_content",
+									"value": "Không chịu, không chịu đâu",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "7,8",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET Post Detail By postID",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/post/post.php?postid=28",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"post",
+								"post.php"
+							],
+							"query": [
+								{
+									"key": "postid",
+									"value": "28",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "obj_image",
+									"value": "",
+									"description": "Optional ",
+									"type": "file"
+								},
+								{
+									"key": "url_image",
+									"value": "https://i-xem.mkocdn.com/i.xem.sb/data/photo/2018/12/06/023/khong-chiu-khong-chiu-dau-1544054823-650.jpg",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "post_content",
+									"value": "Không chịu, không chịu đâu",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "7,8",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post By Post ID",
+					"request": {
+						"url": "{{base_url}}/post/delete.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"postid\": 27\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Active / Deactive Post",
+					"request": {
+						"url": "{{base_url}}/post/activeDeactive.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"postid\": 28\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Search Post (By Full Name or Post Content)",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/post/search.php?query=th",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"post",
+								"search.php"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "th",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"postid\": 28\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get List News has Paging",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/post/getListPagination.php?pagesize=3&currPage=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"post",
+								"getListPagination.php"
+							],
+							"query": [
+								{
+									"key": "pagesize",
+									"value": "3",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "currPage",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get List News By Category",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/post/getListByCategory.php?pagesize=3&currPage=1&tagIndex=7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"post",
+								"getListByCategory.php"
+							],
+							"query": [
+								{
+									"key": "pagesize",
+									"value": "3",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "currPage",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "tagIndex",
+									"value": "7",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "COMMENT",
+			"description": "",
+			"item": [
+				{
+					"name": "Post New Comment For News",
+					"request": {
+						"url": "{{base_url}}/comment/add_new.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*, multipart/form-data",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"Test bình luận\",\n\t\"postid\": \"28\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET List Comment By Post ID",
+					"request": {
+						"url": {
+							"raw": "{{base_url}}/comment/comments.php?postid=28",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comment",
+								"comments.php"
+							],
+							"query": [
+								{
+									"key": "postid",
+									"value": "28",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Check Json Web Token",
+			"request": {
+				"url": "{{base_url}}/member/checktoken.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\": \"test\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check Admin permission",
+			"request": {
+				"url": "{{base_url}}/member/checktoken.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.XUJH4iGD9GYlY2Xl8iLAv6qQM8LR5mVwKcOx_OJNpVE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

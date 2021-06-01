@@ -1,0 +1,22 @@
+1. Store
+2. Vue router
+3. component
+
+Có header : 
+    Trang chủ
+    Profile
+    Thay đổi password
+    User
+    Đăng ảnh
+    Bài viết chi tiết
+
+Không header :
+    Đăng nhập
+    Đăng ký
+================================
+1. import bootstrap4 : yarn add bootstrap
+2. Đặt file style.css(lưu vào assets) vào dưới file bootstrap ở main.js
+
+3. Điều chỉnh background url trong style.css
+
+4.Nested router
